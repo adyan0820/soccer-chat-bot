@@ -32,5 +32,6 @@ def coversation():
         print("SoccerLLM: ", result)
         context += f"\nUser: {user_input}\nAI: {result}"
 
-
+if __name__ == "__main__":
+    coversation()
 
