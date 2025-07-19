@@ -18,5 +18,19 @@ prompt = ChatPromptTemplate.from_template(template)
 
 chain = prompt | model
 
-result = chain.invoke({"context": "", "question": "What's the weather like today?"})
-print(result)
+def coversation():
+    context = ''
+    print("Welcome to SoccerLLM! I'm here to answer all of your soccer related questions. " \
+    "Type 'exit' if you would like to end the conversation")
+
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            break
+        
+        result = chain.invoke({"context": context, "question": user_input})
+        print("SoccerLLM: ", result)
+        context += f"\nUser: {user_input}\nAI: {result}"
+
+
+
