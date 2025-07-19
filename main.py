@@ -15,3 +15,8 @@ Answer
 """
 model = OllamaLLM(model = 'mistral')
 prompt = ChatPromptTemplate.from_template(template)
+
+chain = prompt | model
+
+result = chain.invoke({"context": "", "question": "What's the weather like today?"})
+print(result)
